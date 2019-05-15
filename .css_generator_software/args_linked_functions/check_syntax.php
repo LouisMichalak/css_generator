@@ -18,12 +18,11 @@ function check_syntax_for_options($good_keywds, $argv, $argc)
         }
     }
 }
-function check_syntax_for_file_names($argv, $argc, $args_array)
+function check_syntax_for_file_names($args_array)
 {
     $exit = false;
     $output_style=$args_array["file_names"]["output_style"];
     $output_img=$args_array["file_names"]["output_img"];
-    $assets_folder=$argv[$argc-1];
     if(substr($output_style, -4) != ".css")
     {
         echo "The name of output CSS file \"$output_style\" syntax".
@@ -34,11 +33,6 @@ function check_syntax_for_file_names($argv, $argc, $args_array)
     {
         echo "The name of output image file \"$output_img\" syntax".
             " isn't correct, file's name has to end by \".png\"." . PHP_EOL;
-        $exit = true;
-    }
-    if(!is_dir($assets_folder))
-    {
-        echo "Folder not found." . PHP_EOL;
         $exit = true;
     }
     if($exit)
