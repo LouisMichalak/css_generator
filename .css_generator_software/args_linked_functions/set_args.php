@@ -1,11 +1,6 @@
 <?php
 function set_args($argv, $argc, $args_array)
 {
-    if(in_array("-m", $argv) || in_array("--man", $argv))
-    {
-        man();
-        exit(0);
-    }
     if(in_array("-i", $argv))
     {
         $args_array["file_names"]["output_img"]=$argv[get_key($argv, "-i")];
@@ -16,7 +11,7 @@ function set_args($argv, $argc, $args_array)
     }
     if(in_array("-r", $argv) || in_array("--recursive", $argv))
     {
-        $args_array["pngs_input"]=search($argv[$argc-1], true);
+        $args_array["pngs_input"]=search($argv[$argc-1], true, $argv, $argc);
     }
     $args_array=set_bonus_args($argv, $args_array);
     $args_array=set_long_args($argv, $args_array);
@@ -42,7 +37,7 @@ function set_long_args($argv, $args_array)
 {
     foreach($argv as $key=>$arg)
     {
-        if(strpos($arg, "--") == 0)
+        if(strpos($arg, "--") === 0)
         {
             $args_array=switch_long_args($args_array, $arg);
         }

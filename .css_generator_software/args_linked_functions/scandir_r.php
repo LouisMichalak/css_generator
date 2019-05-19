@@ -1,6 +1,7 @@
 <?php
-function search($assets_folder, $recursivity)
+function search($assets_folder, $recursivity, $argv, $argc)
 {
+    check_dir_existence($argv, $argc);
     $pointer_dir = opendir($assets_folder);
     if(substr($assets_folder, -1) != "/")
     {
@@ -19,7 +20,7 @@ function search($assets_folder, $recursivity)
             $array_pngs = array_merge
             (
                 $array_pngs,
-                search($assets_folder.$actual_exit, true)
+                search($assets_folder.$actual_exit, true, $argv, $argc)
             );
         }
     }

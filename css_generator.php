@@ -8,10 +8,9 @@ include ".css_generator_software/css_writing_functions/css_writing.php";
 include ".css_generator_software/man/help.php";
 function interface_init_args($argv, $argc)
 {
-    if(!is_dir($argv[$argc-1]))
+    if(in_array("-m",$argv)||in_array("--man",$argv))
     {
-        echo "Folder not found." . PHP_EOL;
-        exit(84);
+        man();
     }
     $args_array = array
     (
@@ -20,7 +19,7 @@ function interface_init_args($argv, $argc)
             "output_img"=>"sprite.png",
             "output_style"=>"style.css"
         ),
-        "pngs_input"=>search($argv[$argc-1], false),
+        "pngs_input"=>search($argv[$argc-1], false, $argv, $argc),
         "padding"=>0,
         "images_size"=>0,
         "columns_nbr"=>1,

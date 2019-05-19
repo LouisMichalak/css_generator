@@ -17,6 +17,10 @@ function man()
     echo " the default name is « sprite.png ».\n\n\t";
     echo "\033[1m-s, --output-style=STYLE\n\033[0m\t\tName of the generated ";
     echo "stylesheet. If blank, the default name is « style.css ».\n\n\t";
+    man_bonus_options();
+}
+function man_bonus_options()
+{
     echo "\033[1m-p, --padding=NUMBER\n";
     echo "\t\t\033[0mAdd padding between images of NUMBER pixels.\n\n";
     echo "\t\033[1m-o, --override-size=SIZE\n";
@@ -25,7 +29,8 @@ function man()
     echo "\t\033[1m-c, --columns_number=NUMBER\n";
     echo "\t\t\033[0mThe number of elements to be";
     echo " generated horizontally.\n";
-    echo "\n\t\033[1m-m, --man\n\t\t\033[0mTo view the info about ";
-    echo "the CSS Generator and visualize the command list.\n";
+    echo "\n\t\033[1m-m, --man\n\t\t\033[0mTo view infos about ";
+    echo "CSS Generator and get the command list.\n";
+    exit(0);
 }
 ?>

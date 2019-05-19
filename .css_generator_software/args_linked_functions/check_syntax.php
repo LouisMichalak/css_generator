@@ -40,4 +40,12 @@ function check_syntax_for_file_names($args_array)
         exit(84);
     }
 }
+function check_dir_existence($argv, $argc)
+{
+    if(!is_dir($argv[$argc-1]))
+    {
+        echo "Folder not found." . PHP_EOL;
+        exit(84);
+    }
+}
 ?>
