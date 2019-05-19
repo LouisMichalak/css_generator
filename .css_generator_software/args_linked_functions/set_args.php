@@ -18,6 +18,8 @@ function set_args($argv, $argc, $args_array)
     {
         $args_array["pngs_input"]=search($argv[$argc-1], true);
     }
+    $args_array=set_bonus_args($argv, $args_array);
+    $args_array=set_long_args($argv, $args_array);
     return($args_array);
 }
 function set_bonus_args($argv, $args_array)

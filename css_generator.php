@@ -27,15 +27,12 @@ function interface_init_args($argv, $argc)
     $good_keywds=set_good_kwds();
     check_syntax_for_options($good_keywds, $argv, $argc);
     $args_array = set_args($argv, $argc, $args_array);
-    $args_array = set_bonus_args($argv, $args_array);
-    $args_array = set_long_args($argv, $args_array);
     if($args_array["columns_nbr"]>count($args_array["pngs_input"]))
     {
         $args_array["columns_nbr"]=count($args_array["pngs_input"]);
     }
     check_syntax_for_file_names($args_array);
     image_generator($args_array);
-    return(0);
 }
 function set_good_kwds()
 {
