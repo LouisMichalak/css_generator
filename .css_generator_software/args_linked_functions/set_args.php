@@ -3,8 +3,8 @@ function set_args($argv, $argc, $args_array)
 {
     if(in_array("-m", $argv) || in_array("--man", $argv))
     {
-        echo file_get_contents(".css_generator_software/man.txt");
-        exit();
+        man();
+        exit(0);
     }
     if(in_array("-i", $argv))
     {

@@ -5,6 +5,7 @@ include ".css_generator_software/args_linked_functions/scandir_r.php";
 include ".css_generator_software/sprite_gen_functions/img_generator.php";
 include ".css_generator_software/sprite_gen_functions/pos_img_calculate.php";
 include ".css_generator_software/css_writing_functions/css_writing.php";
+include ".css_generator_software/man/help.php";
 function interface_init_args($argv, $argc)
 {
     if(!is_dir($argv[$argc-1]))
